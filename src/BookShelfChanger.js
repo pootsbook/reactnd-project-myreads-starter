@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
+import * as BooksAPI from './BooksAPI';
 
 class BookShelfChanger extends Component {
+  shelfChanged = (shelf) => {
+    this.props.shelveBook(this.props.book, shelf);
+  };
+
   render = () => {
     const { book } = this.props;
 
     return (
       <div className="book-shelf-changer">
-        <select>
+        <select value={book.shelf} onChange={(event) => this.shelfChanged(event.target.value)}>
           <option value="none" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>

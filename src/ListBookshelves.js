@@ -4,7 +4,7 @@ import Bookshelf from './Bookshelf';
 
 class ListBookshelves extends Component {
   render = () => {
-    const { books } = this.props;
+    const { books, shelveBook } = this.props;
     const shelves = {
       currentlyReading: 'Currently Reading',
       wantToRead: 'Want to Read',
@@ -22,6 +22,7 @@ class ListBookshelves extends Component {
               <Bookshelf
                 title={bookshelf[1]}
                 books={books.filter(book => book.shelf === bookshelf[0])}
+                shelveBook={shelveBook}
                 key={bookshelf[0]}
               />
             ))}

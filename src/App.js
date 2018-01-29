@@ -10,10 +10,18 @@ class BooksApp extends React.Component {
     books: []
   };
 
-  componentDidMount() {
+  shelveBook = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(this.loadBooks());
+  };
+
+  loadBooks = () => {
     BooksAPI.getAll().then((books) => {
       this.setState({ books });
     });
+  }
+
+  componentDidMount() {
+    this.loadBooks();
   };
 
   render() {
@@ -22,6 +30,7 @@ class BooksApp extends React.Component {
         <Route exact path="/" render={() => (
           <ListBookshelves
             books={this.state.books}
+            shelveBook={this.shelveBook}
           />
         )} />
         <Route path='/search' render={() => (

@@ -3,7 +3,7 @@ import BookShelfChanger from './BookShelfChanger';
 
 class Book extends Component {
   render = () => {
-    const { book } = this.props;
+    const { book, shelveBook } = this.props;
 
     return (
       <li>
@@ -16,7 +16,10 @@ class Book extends Component {
                 height: 193,
                 backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}>
             </div>
-            <BookShelfChanger book={book} />
+            <BookShelfChanger
+              book={book}
+              shelveBook={shelveBook}
+            />
           </div>
           <div className="book-title">{book.title}</div>
           <div className="book-authors">{book.authors.join(", ")}</div>
