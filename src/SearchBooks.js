@@ -32,7 +32,7 @@ class SearchBooks extends Component {
 
   render = () => {
     const { query, books } = this.state;
-    const { shelveBook } = this.props;
+    const { shelveBook, shelvedBooks } = this.props;
 
     return (
       <div className="search-books">
@@ -57,6 +57,7 @@ class SearchBooks extends Component {
                 book={book}
                 shelveBook={shelveBook}
                 key={book.id}
+                shelvedBooks={shelvedBooks}
               />
             ))}
           </ol>

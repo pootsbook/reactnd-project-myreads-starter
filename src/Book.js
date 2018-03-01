@@ -3,7 +3,7 @@ import BookShelfChanger from './BookShelfChanger';
 
 class Book extends Component {
   render = () => {
-    const { book, shelveBook } = this.props;
+    const { book, shelveBook, shelvedBooks } = this.props;
 
     return (
       <li>
@@ -19,6 +19,7 @@ class Book extends Component {
             <BookShelfChanger
               book={book}
               shelveBook={shelveBook}
+              shelvedBooks={shelvedBooks}
             />
           </div>
           <div className="book-title">{book.title}</div>
